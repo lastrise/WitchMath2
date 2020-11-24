@@ -15,6 +15,8 @@ struct Quaternion {
     double k;
 
     Quaternion operator*(Quaternion A) const;
+    Quaternion operator*(double h) const;
+    Quaternion operator+(Quaternion other) const;
     Matrix toMatrix() const;
     Quaternion normalize() const;
 };

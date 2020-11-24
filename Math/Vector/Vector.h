@@ -10,6 +10,9 @@ struct Vector {
     double x;
     double y;
     double z;
+
+    Vector operator*(double h) const;
+    Vector operator+(Vector other) const;
 };
 
 

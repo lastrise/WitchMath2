@@ -34,3 +34,21 @@ Quaternion Quaternion::normalize() const {
     }
     return Quaternion{};
 }
+
+Quaternion Quaternion::operator*(double h) const {
+    Quaternion result {};
+    result.r = r * h;
+    result.i = i * h;
+    result.j = j * h;
+    result.k = k * h;
+    return result;
+}
+
+Quaternion Quaternion::operator+(Quaternion other) const {
+    Quaternion result {};
+    result.r = r + other.r;
+    result.i = i + other.i;
+    result.j = j + other.j;
+    result.k = k + other.k;
+    return result;
+}

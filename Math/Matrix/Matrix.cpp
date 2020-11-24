@@ -3,6 +3,7 @@
 //
 
 #include "Matrix.h"
+#include "iostream"
 
 Matrix &Matrix::operator=(Matrix A) {
     for (int i = 0; i < 3; i++) {
