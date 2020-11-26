@@ -40,5 +40,5 @@ RigidBody::RigidBody() {
     INERTIA_TENSOR.values[2][2] = 1.0 / (MASS * RADIUS * RADIUS / 2.0);
     q = {cos(45), 1, 0, 0};
     R = q.toMatrix();
-    L = Vector{200, -100, 100};
+    L = Vector{2000, -1000, 1000};
 }

@@ -13,8 +13,6 @@ struct Matrix {
     Matrix operator*(Matrix A);
     Vector operator*(Vector A);
     Matrix transpose();
-    Matrix invert();
-    Matrix operator*(double scalar);
 };
 
 

@@ -28,33 +28,26 @@ void Idle() {
 
 void drawCylinder() {
     int j, i, k;
+
     glBegin(GL_QUAD_STRIP);
-    for (j=0;j<=360;j+=DEF_D) {
+    for (j = 0; j <= 360; j += DEF_D) {
         glColor3f(Cos(j),Sin(j),0.5);
-        glVertex3f(Cos(j),+1,Sin(j));
+        glVertex3f(RADIUS * Cos(j),HEIGHT / 2,RADIUS * Sin(j));
         glColor3f(0.2,Cos(j),Sin(j));
-        glVertex3f(Cos(j),-1,Sin(j));
+        glVertex3f(RADIUS * Cos(j),-HEIGHT / 2,RADIUS * Sin(j));
     }
     glEnd();
 
-    for (i=1;i>=-1;i-=2) {
+    for (i = 1; i >= -1; i -= 2) {
         glBegin(GL_TRIANGLE_FAN);
         glColor3f(0.0,0.0,1.0);
-        glVertex3f(0,i,0);
-        for (k=0;k<=360;k+=DEF_D) {
+        glVertex3f(0, i * HEIGHT / 2, 0);
+        for (k = 0; k <= 360; k += DEF_D) {
             glColor3f(1,0.0,0.0);
-            glVertex3f(i*Cos(k),i,Sin(k));
+            glVertex3f(i * RADIUS * Cos(k), i * HEIGHT / 2, RADIUS * Sin(k));
         }
         glEnd();
     }
-    glBegin(GL_QUAD_STRIP);
-    for (j=0;j<=0;j+=DEF_D) {
-        glColor3f(1,1,0.0);
-        glVertex3f(Cos(j),+1,Sin(j));
-        glColor3f(0.0,1,0.0);
-        glVertex3f(Cos(j),-1,Sin(j));
-    }
-    glEnd();
 }
 
 void Display() {
@@ -67,7 +60,7 @@ void Display() {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     solve(rigidBody, 0.000001);
     glPushMatrix();
-    glTranslated(rigidBody.r.x, rigidBody.r.y, rigidBody.r.z - 5);
+    glTranslated(rigidBody.r.x, rigidBody.r.y, rigidBody.r.z - 100);
     glRotated(acos(rigidBody.q.r) * 360 / M_PI, rigidBody.q.i, rigidBody.q.j, rigidBody.q.k);
     drawCylinder();
     glPopMatrix();
@@ -78,7 +71,7 @@ void Display() {
 int main(int argc, char * argv []) {
     glutInit(&argc, argv);
     glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH);
-    glutInitWindowSize(300, 300);
+    glutInitWindowSize(600, 600);
     glutInitWindowPosition(0, 0);
     glutCreateWindow("WitchMath 2");
     glutDisplayFunc(Display);
