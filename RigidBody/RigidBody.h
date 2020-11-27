@@ -10,8 +10,8 @@
 #include "../Math/Vector/Vector.h"
 
 
-const double HEIGHT = 50, RADIUS = 20;
-const double MASS = 0.0003;
+const double HEIGHT = 50, RADIUS = 3;
+const double MASS = 0.003;
 
 struct RigidBody {
     Matrix R {};

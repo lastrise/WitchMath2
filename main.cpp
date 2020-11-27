@@ -2,7 +2,7 @@
 #include "RigidBody/RigidBody.h"
 
 
-#define DEF_D 5
+#define DEF_D 1
 #define Cos(th) cos(M_PI/180*(th))
 #define Sin(th) sin(M_PI/180*(th))
 

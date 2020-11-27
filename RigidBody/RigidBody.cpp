@@ -36,8 +36,8 @@ RigidBody RigidBody::operator*(double h) const {
 RigidBody::RigidBody() {
     INERTIA_TENSOR = {0, 0, 0, 0, 0, 0, 0, 0, 0};
     INERTIA_TENSOR.values[0][0] = 1.0 / ((MASS / 12) * (3 * RADIUS * RADIUS + HEIGHT * HEIGHT));
-    INERTIA_TENSOR.values[1][1] = 1.0 / ((MASS / 12) * (3 * RADIUS * RADIUS + HEIGHT * HEIGHT));
-    INERTIA_TENSOR.values[2][2] = 1.0 / (MASS * RADIUS * RADIUS / 2.0);
+    INERTIA_TENSOR.values[1][1] = 1.0 / (MASS * RADIUS * RADIUS / 2.0);
+    INERTIA_TENSOR.values[2][2] = 1.0 / ((MASS / 12) * (3 * RADIUS * RADIUS + HEIGHT * HEIGHT));
     q = {cos(45), 1, 0, 0};
     R = q.toMatrix();
     L = Vector{2000, -1000, 1000};
